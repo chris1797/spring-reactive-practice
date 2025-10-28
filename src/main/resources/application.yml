@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: spring-reactive-practice
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/dev?currentSchema=payment-order
+    username: ${USER}
+    password:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dev?currentSchema=payment-order
+    username: ${USER}
+    password:
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    schemas: payment-order
+    locations: classpath:db/migration
+    baseline-version: 0
+
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG
+    org.flywaydb: DEBUG
